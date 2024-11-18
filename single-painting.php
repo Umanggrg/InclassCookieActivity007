@@ -42,7 +42,7 @@ foreach($paintings as $p) {
     <section class="ui segment grey100">
         <div class="ui doubling stackable grid container">
             <div class="nine wide column">
-              <img src="images/art/medium/<?php echo  $row['ImageFileName']; ?>.jpg" alt="..." class="ui big image" id="artwork">
+              <img src="images/art/medium/<?php echo $row['ImageFileName']; ?>.jpg" alt="..." class="ui big image" id="artwork">
                             
                 
             </div>
@@ -50,10 +50,10 @@ foreach($paintings as $p) {
                 
                 <!-- Main Info -->
                 <div class="item">
-                    <h2 class="header"><?php echo  utf8_encode($row['Title']); ?></h2>
-                    <h3 ><?php echo utf8_encode($row['FirstName'] . ' ' . $row['LastName']); ?></h3>
+                    <h2 class="header"><?php echo mb_convert_encoding($row['Title'], 'UTF-8', 'ISO-8859-1'); ?></h2>
+                    <h3><?php echo mb_convert_encoding($row['FirstName'] . ' ' . $row['LastName'], 'UTF-8', 'ISO-8859-1'); ?></h3>
                       <div class="meta">
-                        <p><?php echo  utf8_encode($row['Excerpt']); ?></p>
+                        <p><?php echo mb_convert_encoding($row['Excerpt'], 'UTF-8', 'ISO-8859-1'); ?></p>
                       </div>  
                 </div>                          
                   
