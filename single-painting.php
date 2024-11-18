@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id']; 
 }
 // find the appropriate painting/row
-foreach($paintings as $p) {
+foreach ($paintings as $p) {
     if ($p["PaintingID"] == $id) $row = $p;
 }
 
@@ -43,8 +43,6 @@ foreach($paintings as $p) {
         <div class="ui doubling stackable grid container">
             <div class="nine wide column">
               <img src="images/art/medium/<?php echo $row['ImageFileName']; ?>.jpg" alt="..." class="ui big image" id="artwork">
-                            
-                
             </div>
             <div class="seven wide column">
                 
@@ -61,7 +59,10 @@ foreach($paintings as $p) {
                 <?php include 'includes/painting-small-tabs.inc.php'; ?>
                 
                 <!-- Cart and Price -->
-                <?php include 'includes/cart-box.inc.php'; ?>                        
+                <?php include 'includes/cart-box.inc.php'; ?> 
+                
+                <!-- Add to Favorites Button -->
+                <a class="ui icon button" href="addToFavorites.php?PaintingID=<?php echo $row['PaintingID']; ?>&ImageFileName=<?php echo $row['ImageFileName']; ?>&Title=<?php echo urlencode($row['Title']); ?>"><i class="heart icon"></i> Add to Favorites</a> 
                           
             </div>
         </div>
