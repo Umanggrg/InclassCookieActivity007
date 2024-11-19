@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include 'includes/data.inc.php';
 include 'includes/art-functions.inc.php';
@@ -23,7 +22,8 @@ $filter = "All Paintings [Top 20]";
 </head>
 <body >
     
-<?php include 'includes/art-header.inc.php'; ?>
+<?php include 'includes/art-header.inc.php'; 
+include 'includes/data.inc.php';?>
     
 <main class="ui segment doubling stackable grid container">
     <section class="four wide column">
@@ -50,11 +50,12 @@ $filter = "All Paintings [Top 20]";
               </div>        
               <div class="extra">
                 <a class="ui icon orange button" href="cart.php?id=<?php echo $work['PaintingID']; ?>"><i class="add to cart icon"></i></a>
-                <a class="ui icon button" href="addToFavorites.php?PaintingID=<?php echo $work['PaintingID']; ?>&ImageFileName=<?php echo $work['ImageFileName']; ?>&Title=<?php echo urlencode($work['Title']); ?>">
-                                <i class="heart icon"></i>
-                            </a>
+                <a class="ui button" href="addToFavorites.php?PaintingID=<?php echo $work['PaintingID']; ?>&ImageFileName=<?php echo urlencode($work['ImageFileName']); ?>&Title=<?php echo urlencode($work['Title']); ?>">
+                        Add to Favorites
+                    </a>
+
               </div>        
-            </div>      
+            </div>     
           </li>
             
           <?php } ?>
@@ -70,3 +71,5 @@ $filter = "All Paintings [Top 20]";
 
 </body>
 </html>
+
+
