@@ -1,8 +1,12 @@
+<?php
+session_start(); // Ensure session is started to access favorites
+$favoritesCount = isset($_SESSION['favorites']) ? count($_SESSION['favorites']) : 0;
+?>
 <header>
-    <div class="ui attached stackable grey inverted  menu">
+    <div class="ui attached stackable grey inverted menu">
         <div class="ui container">
             <nav class="right menu">            
-                <div class="ui simple  dropdown item">
+                <div class="ui simple dropdown item">
                   <i class="user icon"></i>
                   Account
                     <i class="dropdown icon"></i>
@@ -13,18 +17,13 @@
                     <a class="item"><i class="settings icon"></i> Account Settings</a>
                   </div>
                 </div>
-                <a class=" item" href="view-favorites.php">
+                <a class="item" href="view-favorites.php">
                   <i class="heartbeat icon"></i> Favorites
-                  <?php
-                  if (isset($_SESSION['favorites'])) {
-                    echo '<div class="ui red mini label">';
-                    echo count($_SESSION['favorites']);
-                    echo '</div>';
-                  }
-                  ?>
-                  
+                  <?php if ($favoritesCount > 0): ?>
+                    <div class="ui red mini label"><?php echo $favoritesCount; ?></div>
+                  <?php endif; ?>
                 </a>        
-                <a class=" item">
+                <a class="item">
                   <i class="shop icon"></i> Cart
                 </a>                                     
             </nav>            
@@ -34,7 +33,7 @@
     <div class="ui attached stackable borderless huge menu">
         <div class="ui container">
             <h2 class="header item">
-              <img src="images/logo5.png" class="ui small image" >
+              <img src="images/logo5.png" class="ui small image">
             </h2>  
             <a class="item" href="index.php">
               <i class="home icon"></i> Home
@@ -66,4 +65,4 @@
         </div>
     </div>   
     
-</header> 
+</header>
