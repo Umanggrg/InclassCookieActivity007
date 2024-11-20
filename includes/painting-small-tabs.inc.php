@@ -1,5 +1,5 @@
 <?php
-include 'includes/functions.inc.php';
+
 ?>
 
 <div class="ui top attached tabular menu ">
@@ -12,10 +12,22 @@ include 'includes/functions.inc.php';
 <div class="ui bottom attached active tab segment" data-tab="details">
   <table class="ui definition very basic collapsing celled table">
     <tbody>
-      <tr>
-        <td>Artist</td>
-        <td><?php echo generateLink('single-artist.php?id=' . $row['ArtistID'], utf8_encode($row['FirstName'] . ' ' . $row['LastName'])); ?></td>                       
-      </tr>
+    <tr>
+    <td>Artist</td>
+    <td>
+        <?php
+        // Ensure 'FirstName' and 'LastName' exist and concatenate them safely
+        $artistName = trim($row['FirstName'] . ' ' . $row['LastName']);
+        
+        // Use the `generateLink` function and sanitize the output
+        echo generateLink(
+            'single-artist.php?id=' . urlencode($row['ArtistID']), 
+            htmlspecialchars($artistName, ENT_QUOTES, 'UTF-8')
+        );
+        ?>
+    </td>                       
+</tr>
+
       <tr>                       
         <td>Year</td>
         <td><?php echo  $row['YearOfWork']; ?></td>

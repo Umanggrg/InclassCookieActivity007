@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started to access favorites
+
 $favoritesCount = isset($_SESSION['favorites']) ? count($_SESSION['favorites']) : 0;
 ?>
 <header>
