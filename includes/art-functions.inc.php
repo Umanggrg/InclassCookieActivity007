@@ -8,6 +8,7 @@ function generateReviewStars($rating) {
   return $output;
 }
 
+
 function generateRatingStars($rating) {
   $output = "";
   for ($i = 0; $i < $rating; $i++) {
@@ -21,7 +22,7 @@ function generateRatingStars($rating) {
 }
 
 function generateLink($url, $label) {
-  return "<a href='$url'>$label</a>";
+  return '<a href="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($label, ENT_QUOTES, 'UTF-8') . '</a>';
 }
 
 function outputFilterOptions($data, $valueField, $dataField) {

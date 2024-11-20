@@ -2,6 +2,7 @@
 session_start(); // Start the session to manage favorites
 
 include 'includes/data.inc.php'; // Include painting data
+include 'includes/art-functions.inc.php';
 
 // Check if there is an ID passed in the query string
 $id = $_GET['id'] ?? 406; // Default to 406 if no ID is provided
@@ -64,13 +65,6 @@ if (!$row) {
                 
                 <!-- Cart and Price -->
                 <?php include 'includes/cart-box.inc.php'; ?> 
-                
-                <!-- Add to Favorites Button -->
-                <a class="ui icon button" 
-                   href="addToFavorites.php?PaintingID=<?php echo $row['PaintingID']; ?>&ImageFileName=<?php echo urlencode($row['ImageFileName']); ?>&Title=<?php echo urlencode($row['Title']); ?>">
-                    <i class="heart icon"></i> Add to Favorites
-                </a> 
-                          
             </div>
         </div>
     </section>

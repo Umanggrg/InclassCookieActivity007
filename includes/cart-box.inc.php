@@ -43,8 +43,9 @@
       <i class="add to cart icon"></i>
       Add to Cart
     </a>
-    <a class="ui right labeled icon button" href="">
-      <i class="heart icon"></i>
-      Add to Favorites
-    </a>        
+    <a class="ui right labeled icon button" 
+      href="addToFavorites.php?PaintingID=<?php echo $row['PaintingID']; ?>&ImageFileName=<?php echo urlencode($row['ImageFileName']); ?>&Title=<?php echo urlencode($row['Title']); ?>">
+        <i class="heart icon"></i>
+        Add to Favorites
+    </a>
 </div>  

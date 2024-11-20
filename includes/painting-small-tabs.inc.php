@@ -1,3 +1,7 @@
+<?php
+include 'includes/functions.inc.php';
+?>
+
 <div class="ui top attached tabular menu ">
     <a class="active item" data-tab="details"><i class="image icon"></i>Details</a>
     <a class="item" data-tab="museum"><i class="university icon"></i>Museum</a>
